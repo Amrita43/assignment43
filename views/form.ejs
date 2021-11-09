@@ -1,0 +1,86 @@
+<%- include('layouts/header'); -%>
+<body>
+  <%- include('layouts/nav'); -%>
+  <section class="w50">
+    <form name="myform" method="Post" onsubmit="return formSubmit();"  action="" >
+      <label>Customer Name</label>
+      <input id="customerName" placeholder="First Last" type="text" name="customerName"><br/>
+
+      <label>Customer Number</label>
+      <input id="customerNumber" placeholder="12-BC-123" type="text" name="customerNumber"><br/>
+
+      <label>Chocolate Blizzards</label>
+      <input name="blizzards" placeholder="5" type="text" id="blizzards"><br/>
+
+      <label>Strawberry Sundaes</label>
+      <input name="sundaes" placeholder="5" type="text" id="sundaes"><br/>
+
+      <label>Blueberry Shakes</label>
+      <input name="shakes" placeholder="5" type="text" id="shakes"><br/>
+
+      <br/><br/>
+
+      <input type="submit" value="Submit">
+      <p id="errors"></p>
+    </form>  
+</section>
+<section class="w50">
+  <div class="formData">
+    <%
+      if(typeof(errors) != 'undefined'){
+        for(var error of errors){
+          %>
+            <p class="errors"><%= error.msg%></p>
+          <%
+        }
+      }
+      if(typeof(total) != 'undefined'){
+        %>
+        <p id="formResult">Your Receipt:</p>
+        <h1>Order placed Sucessfully!</h1>
+        <table>
+          <tr>
+            <th>Name : </th>
+            <td><%= customerName %></td>
+          </tr>
+            <th>Customer Number : </th>
+            <td><%= customerNumber %></td>
+          </tr>
+            <th>Chocolate Blizzards : </th>
+            <td><%= blizzards %></td>
+          </tr>
+          <th>Strawberry Sundaes : </th>
+            <td><%= sundaes %></td>
+          </tr>
+          <th>Blueberry Shakes : </th>
+            <td><%= shakes %></td>
+          </tr>
+          <tr>
+            <th>Subtotal : </th>
+            <td>$<%= subTotal.toFixed(2) %></td>
+          </tr>
+          <tr>
+            <th>Tax : </th>
+            <td>$<%= tax.toFixed(2) %></td>
+          </tr>
+          <tr>
+            <th>Total : </th>
+            <td>$<%= total.toFixed(2) %></td>
+          </tr>
+        </table>
+        <%
+      }
+    %>
+  </div>
+</section>
+<div class="clear"></div>
+</body>
+<%- include('layouts/footer'); -%>
+
+
+
+
+
+
+
+

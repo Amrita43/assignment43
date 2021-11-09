@@ -1,0 +1,23 @@
+<%- include('layouts/header'); -%>
+<body>
+    <%- include('layouts/nav'); -%>
+    <section>
+        <form name="myform" method="Post" action="">
+            <label>Username</label>
+            <input placeholder="admin" type="text" name="userLogin"><br />
+            <label>Password</label>
+            <input placeholder="password" type="password" name="userPass"><br />
+            <input type="submit" value="Login">
+            <p id="errors">
+                <%
+                    if(typeof error !== 'undefined'){
+                        %>
+                            <%=error%>
+                        <%
+                    }
+                %>
+            </p>
+        </form>
+    </section>
+</body>
+<%- include('layouts/footer'); -%>

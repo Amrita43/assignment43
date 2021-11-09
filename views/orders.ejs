@@ -1,0 +1,49 @@
+<%- include('layouts/header'); -%>
+<body>
+    <%- include('layouts/nav'); -%>
+    <section>
+       <table>
+           <thead>
+               <tr>
+                    <th>Customer Name</th>
+                    <th>Customer Number</th>
+                    <th>Chocolate Blizzards</th>
+                    <th>Strawberry Sundaes</th>
+                    <th>Blueberry Shakes</th>
+                    <th>Sub Total</th>
+                    <th>Tax</th>
+                    <th>Total</th>    
+                    <th>Delete</th>        
+                </tr>
+           </thead>
+           <tbody>
+                <%
+                    for(var order of orders){
+                        %>
+                            <tr>
+                                <td><%= order.customerName %></td>
+                                <td><%= order.customerNumber %></td>
+                                <td><%= order.blizzards %></td>
+                                <td><%= order.sundaes %></td>
+                                <td><%= order.shakes %></td>
+                                <td>$<%= order.subTotal %></td>
+                                <td>$<%= order.tax %></td>
+                                <td>$<%= order.total %></td>
+                                <td><a href="/delete/<%= order._id%>">Delete</a></td>
+                           </tr>
+                        <%
+                    }
+                %>
+           </tbody>
+       </table>
+    </section>
+</body>
+<%- include('layouts/footer'); -%>
+
+
+
+
+
+
+
+
